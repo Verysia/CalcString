@@ -17,10 +17,10 @@ public class Calculator {
             data = virajenie.split(" / ");
             znak = '/';
         } else {
-            throw new Exception("Неверный знак");
+            throw new Exception("Nevernyi znak");
         }
         if (znak == '*' || znak == '/') {
-            if (data[1].contains("\"")) throw new Exception("Строка умножается или делится только на число");
+            if (data[1].contains("\"")) throw new Exception("Stroka ymnozaetsya ili delitsya na chislo");
         }
         for (int i = 0; i < data.length; i++) {
             data[i] = data[i].replace("\"", "");
