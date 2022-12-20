@@ -1,8 +1,6 @@
 public class Calculator {
-
     private char znak;
     private String[] data;
-
     public void calc(String virajenie) throws Exception {
         if (virajenie.contains(" + ")) {
             data = virajenie.split(" \\+ ");
@@ -22,6 +20,9 @@ public class Calculator {
         if (znak == '*' || znak == '/') {
             if (data[1].contains("\"")) throw new Exception("Stroka ymnozaetsya ili delitsya na chislo");
         }
+        if (data[0].length() > 12 || data[1].length() > 12) {
+            throw new Exception("Very big stroka");
+        }
         for (int i = 0; i < data.length; i++) {
             data[i] = data[i].replace("\"", "");
         }
@@ -33,6 +34,10 @@ public class Calculator {
             for (int i = 0; i < multiplier; i++) {
                 result += data[0];
             }
+            if (result.length() > 40) {
+                result = result + "...";
+            }
+
             pechat(result);
         } else if (znak == '-') {
             int index = data[0].indexOf(data[1]);
