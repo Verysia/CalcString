@@ -30,6 +30,7 @@ public class Calculator {
             pechat(data[0] + data[1]);
         } else if (znak == '*') {
             int multiplier = Integer.parseInt(data[1]);
+            if(Integer.parseInt(data[1])>10) throw new Exception("chislo ne dolzhno bit bolshe 10");
             String result = "";
             for (int i = 0; i < multiplier; i++) {
                 result += data[0];
@@ -50,6 +51,7 @@ public class Calculator {
             }
         } else {
             int newLen = data[0].length() / Integer.parseInt(data[1]);
+            if(Integer.parseInt(data[1])>10) throw new Exception("chislo ne dolzhno bit bolshe 10");
             String result = data[0].substring(0, newLen);
             pechat(result);
         }
